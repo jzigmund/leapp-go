@@ -1,17 +1,5 @@
 #!/bin/bash
 
-echo "TRIGGER DOCS"
-changed_files=`git diff --name-only HEAD^`
-echo "$changed_files"
-
-if [[ $changed_files =~ .*api.yaml ]]; then
-	echo "It's there"
-	request_update_doc
-else
-	echo "Not there"
-	exit 0
-fi
-
 request_update_doc() {
 	echo "Init update doc"
 	git init
@@ -26,3 +14,17 @@ request_update_doc() {
 	git commit -m "rebuild pages"
 	git push -q origin HEAD:master
 }
+
+echo "TRIGGER DOCS"
+changed_files=`git diff --name-only HEAD^`
+echo "$changed_files"
+
+if [[ $changed_files =~ .*api.yaml ]]; then
+	echo "It's there"
+	request_update_doc
+else
+	echo "Not there"
+	exit 0
+fi
+
+
