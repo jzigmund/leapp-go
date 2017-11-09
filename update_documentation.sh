@@ -19,6 +19,7 @@ install_npm_deps() {
 	echo "install nodejs"
 	sudo apt-get install -y nodejs
 	echo "NPM $(npm -v)"
+	npm init
 	npm install widdershins
 }
 
