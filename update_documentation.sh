@@ -19,6 +19,16 @@ install_npm_deps() {
 	echo "install nodejs"
 	sudo apt-get install -y nodejs
 	echo "NPM $(npm -v)"
+	npm install widdershins
+}
+
+convert_documentation() {
+	node widdershins --harmony -y ./docs/api/api.yaml -o test.md
+	if [[ $? -eq 1 ]]; then
+		cat test.md
+  else
+		echo "Ups widdershins failed"
+	fi
 }
 
 #checks if it's merge action
@@ -29,6 +39,7 @@ if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then
 	# checks if merged PR contains any changes in api.yaml
 	if [[ $changed_files =~ .*api.yaml ]]; then
 		install_npm_deps
+		convert_documentation
 		echo "It's there"
 		#request_update_doc
 	else
