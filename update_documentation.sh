@@ -22,7 +22,7 @@ install_npm_deps() {
 }
 
 #checks if it's merge action
-if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master"]]; then
+if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then
 	echo "Update documentation has been triggered"
 	changed_files=`git diff --name-only HEAD^`
 	echo "$changed_files"
