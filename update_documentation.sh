@@ -17,12 +17,10 @@ request_update_doc() {
 
 install_npm_deps() {
 	echo "NPM $(npm -v)"
-	npm install -g widdershins
-	echo "NVM DIR - $NVM_DIR"
 }
 
 convert_documentation() {
-	nvm run widdershins -y ./docs/api/api.yaml -o test.md
+	node run widdershins -y ./docs/api/api.yaml -o test.md
 	cat test.md
 }
 
