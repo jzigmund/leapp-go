@@ -18,7 +18,7 @@ request_update_doc() {
 install_npm_deps() {
 	echo "NPM $(npm -v)"
 	npm init -y
-	npm install widdershins
+	npm install -g widdershins
 }
 
 convert_documentation() {
