@@ -22,6 +22,7 @@ install_npm_deps() {
 
 convert_documentation() {
 	node /home/travis/.nvm/versions/node/v7.4.0/bin/widdershins -y ./docs/api/api.yaml -o test.md
+	cat test.md
 }
 
 #checks if it's merge action
