@@ -16,11 +16,8 @@ request_update_doc() {
 }
 
 install_npm_deps() {
-	echo "install nodejs"
-	sudo apt-get install -y nodejs
 	echo "NPM $(npm -v)"
-	npm init -y
-	npm install widdershins
+	npm install -g widdershins
 }
 
 convert_documentation() {
