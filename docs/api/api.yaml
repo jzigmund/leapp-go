@@ -13,7 +13,7 @@ produces:
 paths:
   /destroy-container:
     post:
-      summary: "Widd Delete the container on target"
+      summary: "Widder Delete the container on target"
       parameters:
        - name: "body"
          in: "body"
