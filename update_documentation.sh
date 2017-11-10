@@ -17,6 +17,7 @@ request_update_doc() {
 
 install_npm_deps() {
 	echo "NPM $(npm -v)"
+	npm init
 	npm install --save widdershins
 }
 
