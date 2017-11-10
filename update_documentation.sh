@@ -18,16 +18,10 @@ request_update_doc() {
 install_npm_deps() {
 	echo "NPM $(npm -v)"
 	npm install -g widdershins
-	cd widdershins
 }
 
 convert_documentation() {
-	node widdershins --harmony -y ./docs/api/api.yaml -o test.md
-	if [[ $? -eq 1 ]]; then
-		cat test.md
-  else
-		echo "Ups widdershins failed"
-	fi
+	node /home/travis/.nvm/versions/node/v7.4.0/bin/widdershins --harmony -y ./docs/api/api.yaml -o test.md
 }
 
 #checks if it's merge action
