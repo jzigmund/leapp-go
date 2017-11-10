@@ -17,13 +17,11 @@ request_update_doc() {
 
 install_npm_deps() {
 	echo "NPM $(npm -v)"
-	npm install -g widdershins
+	npm install --save widdershins
 }
 
 convert_documentation() {
-	npmdir="$(npm bin)/widdershins"
-	echo "NPM dir - $npmdir"
-	node $npmdir widdershins -y ./docs/api/api.yaml -o test.md
+	node widdershins -y ./docs/api/api.yaml -o test.md
 	cat test.md
 }
 
