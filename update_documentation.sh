@@ -17,10 +17,12 @@ request_update_doc() {
 
 install_npm_deps() {
 	echo "NPM $(npm -v)"
+	npm install -g widdershins
+	npm link widdershins
 }
 
 convert_documentation() {
-	node run widdershins -y ./docs/api/api.yaml -o test.md
+	node widdershins -y ./docs/api/api.yaml -o test.md
 	cat test.md
 }
 
