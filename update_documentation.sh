@@ -21,7 +21,7 @@ install_npm_deps() {
 }
 
 convert_documentation() {
-	npm widdershins -y ./docs/api/api.yaml -o test.md
+	node $(npm bin) widdershins -y ./docs/api/api.yaml -o test.md
 	cat test.md
 }
 
