@@ -21,7 +21,8 @@ install_npm_deps() {
 }
 
 convert_documentation() {
-	node $(npm bin) widdershins -y ./docs/api/api.yaml -o test.md
+	npmdir="$(npm bin)/widdershins"
+	node $npmdir widdershins -y ./docs/api/api.yaml -o test.md
 	cat test.md
 }
 
