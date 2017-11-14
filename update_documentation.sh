@@ -11,6 +11,7 @@ request_update_doc() {
 	cp ../test.md shins/source/index.html.md
 	echo "GIT STATUS: $(git status)"
 	git add -A
+	echo "GIT INFO $(git remote -v)"
 	echo "GIT STATUS: $(git status)"
 	echo "REV $(rev)"
 	git commit -m "rebuild pages at $(rev)"
