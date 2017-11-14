@@ -13,8 +13,8 @@ request_update_doc() {
 	git add -A
 	echo "GIT INFO $(git remote -v)"
 	echo "GIT STATUS: $(git status)"
-	echo "REV $(rev)"
-	git commit -m "rebuild pages at $(rev)"
+	echo "REV $commit"
+	git commit -m "rebuild pages at $commit"
 	echo "GIT SHOW $(git show)"
 	git push origin HEAD:master
 }
@@ -33,7 +33,7 @@ convert_documentation() {
 if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then
 	echo "Update documentation has been triggered"
 	changed_files=`git diff --name-only HEAD^`
-	rev=$(git rev-parse --short HEAD)
+	commit=$(git rev-parse --short HEAD)
 	echo "$changed_files"
 	# checks if merged PR contains any changes in api.yaml
 	if [[ $changed_files =~ .*api.yaml ]]; then
