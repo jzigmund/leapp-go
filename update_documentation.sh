@@ -15,7 +15,6 @@ request_update_doc() {
 	echo "GIT STATUS: $(git status)"
 	echo "REV $commit"
 	git commit -m "rebuild pages at $commit"
-	echo "GIT SHOW $(git show)"
 	git push origin HEAD:master
 }
 
