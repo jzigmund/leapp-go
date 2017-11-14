@@ -10,7 +10,7 @@ request_update_doc() {
 	echo "GIT STATUS: $(git status)"
 	cp ../test.md shins/source/index.html.md
 	echo "GIT STATUS: $(git status)"
-	git add shins/source/index.html.md
+	git add -A
 	echo "GIT STATUS: $(git status)"
 	git commit -m "rebuild pages at $(rev)"
 	git push origin HEAD:master
