@@ -13,6 +13,7 @@ request_update_doc() {
 	git add -A
 	echo "GIT STATUS: $(git status)"
 	git commit -m "rebuild pages at $(rev)"
+	echo "GIT SHOW $(git show)"
 	git push origin HEAD:master
 }
 
