@@ -37,6 +37,7 @@ if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then
 		convert_documentation
 		echo "It's there"
 		request_update_doc
+		exit 0
 	else
 		echo "Not there"
 		exit 0
