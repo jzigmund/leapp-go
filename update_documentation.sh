@@ -10,6 +10,8 @@ request_update_doc() {
 	echo "GIT STATUS: $(git status)"
 	cp ../test.md shins/source/index.html.md
 	echo "GIT STATUS: $(git status)"
+	cd shins
+	node /home/travis/.nvm/versions/node/v7.4.0/bin/shins
 	git add -A
 	echo "GIT INFO $(git remote -v)"
 	echo "GIT STATUS: $(git status)"
@@ -20,7 +22,7 @@ request_update_doc() {
 
 install_npm_deps() {
 	echo "NPM $(npm -v)"
-	npm install -g widdershins
+	npm install -g widdershins shins
 }
 
 convert_documentation() {
