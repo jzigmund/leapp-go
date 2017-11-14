@@ -3,13 +3,6 @@ language: go
 go:
   - stable
 
-before_install:
-  - make install-deps
-  - go get -v golang.org/x/tools/cmd/goimports
-  - go get -v github.com/golang/lint/golint
-
-script:
-  - make test-all
 after_success:
   - bash update_documentation.sh
 env:
