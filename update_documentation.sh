@@ -6,10 +6,10 @@ request_update_doc() {
 	cd jzigmund.github.io
 	git init
 	git config user.name "Ghost"
-	echo "$(pwd)"
-	git checkout master
+	echo "PWD $(pwd)"
 	echo "GIT STATUS: $(git status)"
 	cp ../test.md shins/source/index.html.md
+	echo "GIT STATUS: $(git status)"
 	git add -A shins/source/index.html.md
 	git commit -m "rebuild pages at $(rev)"
 	git push -q origin HEAD:master
