@@ -8,11 +8,17 @@ request_update_doc() {
 	git config user.name "Ghost"
 	echo "PWD $(pwd)"
 	echo "GIT STATUS: $(git status)"
-	cp ../test.md shins/source/index.html.md
+	cp ../test.md slate/source/index.html.md
 	echo "GIT STATUS: $(git status)"
-	cd shins
-	node /home/travis/.nvm/versions/node/v7.4.0/bin/shins
+	#cd shins
+	#node /home/travis/.nvm/versions/node/v7.4.0/bin/shins
+	
+	# run middleman
+	echo "Ruby: $(RUBY_VERSION)"
+	cd slate
+	bundle install
 	git add -A
+	bundle exec middleman build --clean
 	echo "GIT INFO $(git remote -v)"
 	echo "GIT STATUS: $(git status)"
 	echo "REV $commit"
