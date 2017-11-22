@@ -5,20 +5,14 @@ request_update_doc() {
 	git clone "https://$GH_TOKEN@github.com/jzigmund/jzigmund.github.io.git"
 	cd jzigmund.github.io
 	git init
-	git config user.name "Ghost"
+	git config user.name "Travis-CI"
 	echo "PWD $(pwd)"
 	echo "GIT STATUS: $(git status)"
-	cp ../test.md slate/source/index.html.md
+	cp ../index.html md shins/source/index.html.md
 	echo "GIT STATUS: $(git status)"
-	#cd shins
-	#node /home/travis/.nvm/versions/node/v7.4.0/bin/shins
-	
-	# run middleman
-	echo "Ruby: $(RUBY_VERSION)"
-	cd slate
-	bundle install
+	cd shins
+	node /home/travis/.nvm/versions/node/v7.4.0/bin/shins --minify
 	git add -A
-	bundle exec middleman build --clean
 	echo "GIT INFO $(git remote -v)"
 	echo "GIT STATUS: $(git status)"
 	echo "REV $commit"
@@ -32,8 +26,9 @@ install_npm_deps() {
 }
 
 convert_documentation() {
-	node /home/travis/.nvm/versions/node/v7.4.0/bin/widdershins -y ./docs/api/api.yaml -o test.md
+	node /home/travis/.nvm/versions/node/v7.4.0/bin/widdershins -y ./docs/api/api.yaml -o index.html.md
 	echo "NVM - $(NVM_PATH) \nNODE - $(NODE_PATH)"
+	echo "PRINT ENV $(printenv)"
 }
 
 #checks if it's merge action
