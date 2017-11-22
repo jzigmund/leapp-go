@@ -8,7 +8,7 @@ request_update_doc() {
 	git config user.name "Travis-CI"
 	echo "PWD $(pwd)"
 	echo "GIT STATUS: $(git status)"
-	cp ../index.html md shins/source/index.html.md
+	cp ../index.html.md shins/source/index.html.md
 	echo "GIT STATUS: $(git status)"
 	cd shins
 	node /home/travis/.nvm/versions/node/v7.4.0/bin/shins --minify
